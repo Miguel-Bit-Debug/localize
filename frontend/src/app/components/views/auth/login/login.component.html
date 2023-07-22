@@ -1,0 +1,28 @@
+<div class="login-wrapper">
+  <div class="form-login">
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput type="text" [(ngModel)]="email">
+      <button class="btn-form" *ngIf="email" matSuffix mat-icon-button aria-label="Clear" (click)="email=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Senha</mat-label>
+      <input matInput type="password" [(ngModel)]="password">
+      <button class="btn-form" *ngIf="password" matSuffix mat-icon-button aria-label="Clear" (click)="password=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <div class="create-account">
+      <button routerLink="/register" mat-raised-button color="warn">Registrar-se</button>
+      <button (click)="login()" mat-raised-button color="accent">Login</button>
+    </div>
+  </div>
+
+  <div class="img-login">
+    <img src="../../../../../assets/img/localize.jpg" alt="logo localize">
+    <a href="https://www.linkedin.com/in/miguel-dos-santos-ribeiro-95738b181/">Desenvolvido por: <span>Miguel dos Santos Ribeiro</span></a>
+  </div>
+</div>

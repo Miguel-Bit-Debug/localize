@@ -1,0 +1,42 @@
+<div class="register-wrapper">
+  <div class="form-register">
+
+    <mat-form-field>
+      <mat-label>Nome</mat-label>
+      <input matInput type="text" [(ngModel)]="name">
+      <button class="btn-form" *ngIf="name" matSuffix mat-icon-button aria-label="Clear" (click)="name=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput type="email" [(ngModel)]="email">
+    <button class="btn-form" *ngIf="email" matSuffix mat-icon-button aria-label="Clear" (click)="email=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Senha</mat-label>
+    <input matInput type="password" [(ngModel)]="password">
+    <button class="btn-form" *ngIf="password" matSuffix mat-icon-button aria-label="Clear" (click)="password=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Confirmar senha</mat-label>
+    <input matInput type="password" [(ngModel)]="confirmPassword">
+    <button class="btn-form" *ngIf="confirmPassword" matSuffix mat-icon-button aria-label="Clear" (click)="confirmPassword=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <div class="login">
+    <button class="btn-register" routerLink="/" mat-raised-button color="accent">Login</button>
+    <button (click)="register()" class="btn-register" [disabled]="(confirmPassword != password)" mat-raised-button color="warn">Registrar-se</button>
+  </div>
+</div>
+</div>
+
