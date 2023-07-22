@@ -11,7 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\Localize.CrossCutting\Localize.CrossCutting.csproj" />
+    <ProjectReference Include="..\Localize.Domain\Localize.Domain.csproj" />
   </ItemGroup>
 
 </Project>
