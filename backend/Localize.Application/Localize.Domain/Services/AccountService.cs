@@ -44,7 +44,7 @@ namespace Localize.Domain.Services
             }
             catch (Exception ex)
             {
-                _logger.LogInformation($"erro ao criar a conta. {request.Username} - Erro {ex.Message}");
+                _logger.LogInformation($"erro ao criar a conta. {request.Name} - Erro {ex.Message}");
                 throw ex;
             }
         }
