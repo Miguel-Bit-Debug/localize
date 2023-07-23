@@ -1,4 +1,4 @@
-﻿using Localize.Domain.DTOs;
+﻿using Localize.Domain.DTOs.Request;
 using Localize.Domain.Interfaces.Repositories;
 using Localize.Domain.Interfaces.Services;
 using Localize.Domain.Models;

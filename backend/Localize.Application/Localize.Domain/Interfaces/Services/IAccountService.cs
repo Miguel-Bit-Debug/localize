@@ -1,4 +1,4 @@
-﻿using Localize.Domain.DTOs;
+﻿using Localize.Domain.DTOs.Request;
 
 namespace Localize.Domain.Interfaces.Services
 {

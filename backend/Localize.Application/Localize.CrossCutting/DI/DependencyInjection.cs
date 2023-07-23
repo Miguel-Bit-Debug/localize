@@ -1,14 +1,12 @@
-﻿using FluentValidation;
-using Gateway.Domain.DTOs.Request;
-using Gateway.Domain.ExternalServices;
-using Gateway.Domain.Interfaces.Repositories;
-using Gateway.Domain.Interfaces.Services;
-using Gateway.Domain.Services;
-using Gateway.Domain.Validators;
-using Gateway.InfraData.Data;
-using Gateway.InfraData.Repositories;
-using ICut.Domain.Services;
+﻿using Localize.Domain.ExternalServices;
+using Localize.Domain.Interfaces.ExternalServices;
+using Localize.Domain.Interfaces.Repositories;
+using Localize.Domain.Interfaces.Services;
+using Localize.Domain.Services;
+using Localize.InfraData.Data;
+using Localize.InfraData.Repositories;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Gateway.CrossCutting.DI
@@ -27,6 +25,15 @@ namespace Gateway.CrossCutting.DI
                     .AllowAnyOrigin()
                     .AllowAnyMethod()
                     .AllowAnyHeader());
+            });
+
+            builder.Services.AddScoped<IRevenueExternalService, RevenueExternalService>();
+            builder.Services.AddScoped<IRevenueService, RevenueService>();
+            builder.Services.AddScoped<IRevenueRepository, RevenueRepository>();
+
+            builder.Services.AddDbContext<AppDbContext>(opt =>
+            {
+                opt.UseSqlServer(builder.Configuration["DbConnection"]);
             });
         }
     }

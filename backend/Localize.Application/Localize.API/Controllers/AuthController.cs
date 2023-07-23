@@ -1,4 +1,4 @@
-﻿using Localize.Domain.DTOs;
+﻿using Localize.Domain.DTOs.Request;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Localize.API.Controllers
@@ -14,12 +14,12 @@ namespace Localize.API.Controllers
                 return BadRequest(ModelState.Select(x => x.Value?.Errors).ToList());
             }
 
-            var result = await _accountService.CreateAccount(request);
+            //var result = await _accountService.CreateAccount(request);
 
-            if (string.IsNullOrEmpty(result))
-            {
-                return BadRequest(new { message = "Error to create account" });
-            }
+            //if (string.IsNullOrEmpty(result))
+            //{
+            //    return BadRequest(new { message = "Error to create account" });
+            //}
             return Ok();
         }
     }

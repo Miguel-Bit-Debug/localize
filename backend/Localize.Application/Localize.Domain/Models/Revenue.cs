@@ -2,7 +2,7 @@
 
 namespace Localize.Domain.Models
 {
-    public class CNPJ
+    public class Revenue
     {
         /// <summary>
         /// 
@@ -36,7 +36,7 @@ namespace Localize.Domain.Models
         /// <param name="capitalSocial">Capital Social</param>
         /// <param name="qsa">Capital Social</param>
         /// <param name="billing">Informações sobre o uso de limites da consulta</param>
-        public CNPJ(string status,
+        public Revenue(string status,
                     DateTime ultimaAtualizacao,
                     string cnpj,
                     string tipo,
@@ -99,63 +99,34 @@ namespace Localize.Domain.Models
         }
 
         public Guid Id { get; set; }
-        [JsonProperty("status")]
         public string Status { get; private set; }
-        [JsonProperty("ultima_atualizacao")]
         public DateTime UltimaAtualizacao { get; private set; }
-        [JsonProperty("ultima_atualizacao")]
         public string Cnpj { get; private set; }
-        [JsonProperty("tipo")]
         public string Tipo { get; private set; }
-        [JsonProperty("porte")]
         public string Porte { get; private set; }
-        [JsonProperty("nome")]
         public string Nome { get; private set; }
-        [JsonProperty("fantasia")]
         public string Fantasia { get; private set; }
-        [JsonProperty("abertura")]
         public string Abertura { get; private set; }
-        [JsonProperty("atividade_principal")]
         public IEnumerable<AtividadePrincipal> AtividadePrincipal { get; private set; }
-        [JsonProperty("atividades_secundarias")]
         public IEnumerable<AtividadesSecundaria> AtividadesSecundaria { get; private set; }
-        [JsonProperty("natureza_juridica")]
         public string NaturezaJuridica { get; private set; }
-        [JsonProperty("logradouro")]
         public string Logradouro { get; private set; }
-        [JsonProperty("numero")]
         public string Numero { get; private set; }
-        [JsonProperty("complemento")]
         public string Complemento { get; private set; }
-        [JsonProperty("cep")]
         public string Cep { get; private set; }
-        [JsonProperty("bairro")]
         public string Bairro { get; private set; }
-        [JsonProperty("municipio")]
         public string Municipio { get; private set; }
-        [JsonProperty("uf")]
         public string Uf { get; private set; }
-        [JsonProperty("email")]
         public string Email { get; private set; }
-        [JsonProperty("telefone")]
         public string Telefone { get; private set; }
-        [JsonProperty("efr")]
         public string Efr { get; private set; }
-        [JsonProperty("situacao")]
         public string situacao { get; private set; }
-        [JsonProperty("data_situacao")]
         public string DataSituacao { get; private set; }
-        [JsonProperty("motivo_situacao")]
         public string MotivoSituacao { get; private set; }
-        [JsonProperty("situacao_especial")]
         public string SituacaoEspecial { get; private set; }
-        [JsonProperty("data_situacao_especial")]
         public string DataSituacaoEspecial { get; private set; }
-        [JsonProperty("capital_social")]
         public string CapitalSocial { get; private set; }
-        [JsonProperty("qsa")]
         public IEnumerable<Qsa> Qsa { get; private set; }
-        [JsonProperty("Billing")]
         public Billing Billing { get; private set; }
     }
 }

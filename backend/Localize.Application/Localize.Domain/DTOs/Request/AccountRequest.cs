@@ -1,4 +1,4 @@
-﻿namespace Localize.Domain.DTOs
+﻿namespace Localize.Domain.DTOs.Request
 {
     public class AccountRequest
     {
