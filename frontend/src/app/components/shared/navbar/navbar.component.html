@@ -1,0 +1,15 @@
+<mat-sidenav-container>
+  <mat-sidenav #sidenav [fixedInViewport]="true" [opened]="!isSmallScreen" [mode]="sidenavMode">
+    <mat-toolbar color="primary" routerLink="/" style="cursor: pointer;">
+      Menu
+    </mat-toolbar>
+
+    <mat-nav-list>
+      <a mat-list-item routerLink="/home">Buscar CNPJ</a>
+      <a mat-list-item routerLink="/home/editar-perfil">Editar Perfil</a>
+      <a mat-list-item routerLink="/home/excluir-perfil">Excluir Perfil</a>
+      <a (click)="logout()" class="logout" mat-flat-button color="accent" routerLink="progressBarSpinner">Logout</a>
+    </mat-nav-list>
+
+  </mat-sidenav>
+</mat-sidenav-container>

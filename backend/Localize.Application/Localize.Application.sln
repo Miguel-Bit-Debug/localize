@@ -11,12 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Localize.InfraData", "Local
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Localize.API", "Localize.API\Localize.API.csproj", "{30573D92-6628-48F2-9A53-F1073D04FD89}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{A2D8DC32-D1D3-4570-A2CE-384885C41BF8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{F24E0D75-74DF-404D-80DA-9DFFFD03242A}"
 	ProjectSection(SolutionItems) = preProject
-		docker-compose.yaml = docker-compose.yaml
-		Dockerfile.txt = Dockerfile.txt
-		table pedidos.sql = table pedidos.sql
-		table contas.sql = table contas.sql
+		scripts\docker-compose.yaml = scripts\docker-compose.yaml
+		scripts\table contas.sql = scripts\table contas.sql
+		scripts\table pedidos.sql = scripts\table pedidos.sql
 	EndProjectSection
 EndProject
 Global

@@ -1,5 +1,6 @@
 ﻿using Localize.Domain.DTOs.Request;
 using Localize.Domain.Interfaces.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
@@ -30,7 +31,7 @@ namespace Localize.API.Controllers
                 return BadRequest(new { message = "Error to create account" });
             }
 
-            return Ok(result);
+            return Ok(new { token = result });
         }
 
         [HttpPost("login")]
@@ -48,9 +49,10 @@ namespace Localize.API.Controllers
                 return Unauthorized(new { message = "Email or password it's not correct" });
             }
 
-            return Ok(tokenLoginAuth);
+            return Ok(new { token = tokenLoginAuth });
         }
 
+        [Authorize]
         [HttpDelete("remove-account")]
         public async Task<IActionResult> DeleteAccount()
         {
@@ -61,6 +63,7 @@ namespace Localize.API.Controllers
             return NoContent();
         }
 
+        [Authorize]
         [HttpPut("update-account")]
         public async Task<IActionResult> UpdateAccount([FromBody] UpdateAccountRequest request)
         {

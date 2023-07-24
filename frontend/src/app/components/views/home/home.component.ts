@@ -1,4 +1,4 @@
-import { TokenService } from './../../../services/token.service';
+import { RevenueService } from './../../../services/revenue.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,13 +7,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
-  constructor(private tokenService: TokenService) { }
-  public token!: string;
+  public isSmallScreen = false;
+  public cnpj!: string;
+  private token!: string;
 
   ngOnInit(): void {
-    this.token = this.tokenService.getToken();
-    console.log(this.token)
   }
 
+  constructor(private revenueService: RevenueService) {
+    this.token = localStorage.getItem('token') || ''
+  }
+
+  get sidenavMode() {
+    return this.isSmallScreen ? 'over' : 'side';
+  }
+
+  public buscarCnpj() {
+    this.revenueService.buscarRevenue(this.token, this.cnpj)
+      .subscribe((response: any) => {
+        console.log(response);
+      });
+  }
 }

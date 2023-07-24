@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { AccountRequestDTO } from 'src/app/models/accountRequest';
 import { AuthService } from './../../../../services/auth.service';
 import { Component } from '@angular/core';
@@ -13,7 +14,7 @@ export class RegisterComponent {
   public password!: string;
   public confirmPassword!: string;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   public register() {
     let account = new AccountRequestDTO(this.name,
@@ -21,8 +22,11 @@ export class RegisterComponent {
                                      this.password,
                                      this.confirmPassword);
 
-    this.authService.register(account).subscribe((response: any) => {
+    this.authService.register(account)
+    .subscribe((response: any) => {
       console.log(response);
+      localStorage.setItem('token', response.token);
+      this.router.navigate(["/home"])
 
     })
   }
