@@ -1,4 +1,3 @@
-using Gateway.CrossCutting.DI;
 using Localize.CrossCutting.DI;
 
 var builder = WebApplication.CreateBuilder(args);

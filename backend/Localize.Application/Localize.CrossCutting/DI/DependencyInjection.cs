@@ -12,7 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
-namespace Gateway.CrossCutting.DI
+namespace Localize.CrossCutting.DI
 {
     public static class DependencyInjection
     {
@@ -41,7 +41,7 @@ namespace Gateway.CrossCutting.DI
                     IssuerSigningKey = new SymmetricSecurityKey(key)
                 };
             });
-            
+
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy", builder => builder

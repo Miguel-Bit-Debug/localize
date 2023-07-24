@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Localize.API", "Localize.AP
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{A2D8DC32-D1D3-4570-A2CE-384885C41BF8}"
 	ProjectSection(SolutionItems) = preProject
+		docker-compose.yaml = docker-compose.yaml
+		Dockerfile.txt = Dockerfile.txt
 		table pedidos.sql = table pedidos.sql
 		table contas.sql = table contas.sql
 	EndProjectSection

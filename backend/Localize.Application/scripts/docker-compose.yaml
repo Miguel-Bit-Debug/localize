@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  sqlserver:
+    container_name: sqlserverdb
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "1433:1433"
+    restart: always
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=sqlserver@2023
+      - MSSQL_SCRIPT=init.sql
+    volumes:
+      - ./data:/var/opt/mssql/data
