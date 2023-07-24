@@ -34,6 +34,12 @@ namespace Localize.InfraData.Repositories
             await _context.SaveChangesAsync();
         }
 
+        public async Task DeleteAccount(Account account)
+        {
+            _context.Contas.Remove(account);
+            await _context.SaveChangesAsync();
+        }
+
         public async Task<Account> GetAccountByEmail(string email)
         {
             var account = await _context.Contas
@@ -41,6 +47,12 @@ namespace Localize.InfraData.Repositories
                 .FirstOrDefaultAsync();
 
             return account;
+        }
+
+        public async Task UpdateAccount(Account account)
+        {
+            _context.Entry(account).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
         }
     }
 }

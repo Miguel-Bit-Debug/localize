@@ -1,6 +1,7 @@
 ﻿using Localize.Domain.DTOs.Request;
 using Localize.Domain.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace Localize.API.Controllers
 {
@@ -48,7 +49,25 @@ namespace Localize.API.Controllers
             }
 
             return Ok(tokenLoginAuth);
+        }
 
+        [HttpDelete("remove-account")]
+        public async Task<IActionResult> DeleteAccount()
+        {
+            var userEmail = HttpContext.User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Email)?.Value;
+
+            await _accountService.DeleteAccount(userEmail);
+
+            return NoContent();
+        }
+
+        [HttpPut("update-account")]
+        public async Task<IActionResult> UpdateAccount([FromBody] UpdateAccountRequest request)
+        {
+            var userEmail = HttpContext.User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Email)?.Value;
+
+            await _accountService.UpdateAccount(userEmail, request);
+            return NoContent();
         }
     }
 }

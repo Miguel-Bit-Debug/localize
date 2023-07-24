@@ -19,5 +19,15 @@ namespace Localize.Domain.Models
         public string Name { get; private set; }
         public string Email { get; private set; }
         public string Password { get; private set; }
+
+        public void UpdateName(string name)
+        {
+            Name = name;
+        }
+
+        public void UpdateEmail(string email)
+        {
+            Email = email;
+        }
     }
 }

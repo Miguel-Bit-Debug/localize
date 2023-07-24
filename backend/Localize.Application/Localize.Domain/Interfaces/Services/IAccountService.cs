@@ -6,5 +6,7 @@ namespace Localize.Domain.Interfaces.Services
     {
         Task<string> CreateAccount(AccountRequest request);
         Task<string> Login(LoginRequest request);
+        Task DeleteAccount(string email);
+        Task UpdateAccount(string email, UpdateAccountRequest request);
     }
 }

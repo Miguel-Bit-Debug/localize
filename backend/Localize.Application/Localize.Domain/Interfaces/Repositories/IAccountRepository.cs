@@ -7,5 +7,7 @@ namespace Localize.Domain.Interfaces.Repositories
         Task CreateAccount(Account account);
         Task<bool> CheckAccountExists(string email);
         Task<Account> GetAccountByEmail(string email);
+        Task DeleteAccount(Account account);
+        Task UpdateAccount(Account account);
     }
 }

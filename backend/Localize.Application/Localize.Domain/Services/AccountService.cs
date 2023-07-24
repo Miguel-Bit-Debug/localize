@@ -58,6 +58,18 @@ namespace Localize.Domain.Services
             }
         }
 
+        public async Task DeleteAccount(string email)
+        {
+            var account = await _accountRepository.GetAccountByEmail(email);
+
+            if (account == null)
+            {
+                return;
+            }
+
+            await _accountRepository.DeleteAccount(account);
+        }
+
         public async Task<string> Login(LoginRequest request)
         {
             var account = await _accountRepository.GetAccountByEmail(request.Email);
@@ -76,6 +88,32 @@ namespace Localize.Domain.Services
 
             var token = _tokenService.GenerateToken(account.Name, account.Email);
             return token;
+        }
+
+        public async Task UpdateAccount(string email, UpdateAccountRequest request)
+        {
+            var oldAccount = await _accountRepository.GetAccountByEmail(email);
+
+            if (ValidateUpdateAccount(oldAccount, request))
+            {
+                return;
+            }
+
+            oldAccount.UpdateName(request.Name);
+            oldAccount.UpdateEmail(request.Email);
+
+            await _accountRepository.UpdateAccount(oldAccount);
+        }
+
+        private bool ValidateUpdateAccount(Account oldAccount, UpdateAccountRequest newAccount)
+        {
+            if (oldAccount.Email == newAccount.Email &&
+                oldAccount.Name == newAccount.Name)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }
