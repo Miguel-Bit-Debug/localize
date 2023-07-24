@@ -47,7 +47,7 @@ namespace Localize.API.Controllers
                 return Unauthorized(new { message = "Email or password it's not correct" });
             }
 
-            return Ok(new { token = tokenLoginAuth });
+            return Ok(tokenLoginAuth);
 
         }
     }
