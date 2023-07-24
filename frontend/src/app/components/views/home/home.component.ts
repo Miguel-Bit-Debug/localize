@@ -11,6 +11,8 @@ export class HomeComponent implements OnInit {
   public cnpj!: string;
   private token!: string;
 
+  public data: any[] = [];
+
   ngOnInit(): void {
   }
 
@@ -25,7 +27,7 @@ export class HomeComponent implements OnInit {
   public buscarCnpj() {
     this.revenueService.buscarRevenue(this.token, this.cnpj)
       .subscribe((response: any) => {
-        console.log(response);
+        this.data.push(response);
       });
   }
 }

@@ -1,3 +1,4 @@
+import { UpdateAccountRequest } from './../models/updateAccountRequest';
 import { Injectable } from '@angular/core';
 import { environment } from './../../environments/environment';
 import { LoginRequest } from './../models/loginRequest';
@@ -26,6 +27,22 @@ export class AuthService {
 
   public excluirConta(token: string): Observable<any> {
     return this.http.delete<any>(`${this.baseUrl}/api/auth/remove-account`, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
+  }
+
+  public accountInfo(token: string): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/api/auth/account-info`, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
+  }
+
+  public updateAccount(token: string, updateAccountRequest: UpdateAccountRequest): Observable<any> {
+    return this.http.put<any>(`${this.baseUrl}/api/auth/update-account`, updateAccountRequest, {
       headers: {
         'Authorization': `Bearer ${token}`
       }

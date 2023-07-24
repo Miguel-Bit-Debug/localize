@@ -1,4 +1,5 @@
 ﻿using Localize.Domain.DTOs.Request;
+using Localize.Domain.DTOs.Response;
 
 namespace Localize.Domain.Interfaces.Services
 {
@@ -8,5 +9,6 @@ namespace Localize.Domain.Interfaces.Services
         Task<string> Login(LoginRequest request);
         Task DeleteAccount(string email);
         Task UpdateAccount(string email, UpdateAccountRequest request);
+        Task<AccountResponse> GetAccountInfo(string email);
     }
 }

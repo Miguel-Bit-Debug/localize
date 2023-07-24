@@ -1,0 +1,82 @@
+<div class="content">
+
+  <div *ngFor="let info of data" class="info">
+    <div class="label">
+      <label>Abertura</label>
+      <p>{{ info.abertura }}</p>
+    </div>
+
+    <div class="label">
+      <label>CNPJ</label>
+      <p>{{ info.cnpj }}</p>
+    </div>
+
+    <div class="label">
+      <label>Situação</label>
+      <p>{{ info.situacao }}</p>
+    </div>
+
+    <div class="label">
+      <label>Tipo</label>
+      <p>{{ info.tipo }}</p>
+    </div>
+
+    <div class="label">
+      <label>Nome</label>
+      <p>{{ info.nome }}</p>
+    </div>
+
+    <div class="label">
+      <label>Fantasia</label>
+      <p>{{ info.fantasia }}</p>
+    </div>
+
+    <div class="label">
+      <label>Porte</label>
+      <p>{{ info.porte }}</p>
+    </div>
+
+    <div class="label">
+      <label>Natureza Juridica</label>
+      <p>{{ info.natureza_juridica }}</p>
+    </div>
+
+    <div class="label">
+      <label>Atividade principal</label>
+      <div *ngFor="let atividade of info.atividade_principal" >
+        <p>{{ atividade.text }}</p>
+      </div>
+    </div>
+
+    <div class="label">
+      <label>Logradouro</label>
+      <p>{{ info.logradouro }}</p>
+    </div>
+
+    <div class="label">
+      <label>Municipio</label>
+      <p>{{ info.municipio }}</p>
+    </div>
+
+    <div class="label">
+      <label>Bairro</label>
+      <p>{{ info.bairro }}</p>
+    </div>
+
+    <div class="label">
+      <label>UF</label>
+      <p>{{ info.uf }}</p>
+    </div>
+
+    <div class="label">
+      <label>CEP</label>
+      <p>{{ info.cep }}</p>
+    </div>
+
+    <div class="label">
+      <label>Ultima atualização</label>
+      <p>{{ info.ultima_atualizacao }}</p>
+    </div>
+  </div>
+
+</div>

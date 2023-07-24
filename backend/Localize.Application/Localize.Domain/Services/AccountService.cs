@@ -1,4 +1,5 @@
 ﻿using Localize.Domain.DTOs.Request;
+using Localize.Domain.DTOs.Response;
 using Localize.Domain.Interfaces.Repositories;
 using Localize.Domain.Interfaces.Services;
 using Localize.Domain.Models;
@@ -68,6 +69,14 @@ namespace Localize.Domain.Services
             }
 
             await _accountRepository.DeleteAccount(account);
+        }
+
+        public async Task<AccountResponse> GetAccountInfo(string email)
+        {
+            var account = await _accountRepository.GetAccountByEmail(email);
+
+            var accountResponse = new AccountResponse(account.Name, account.Email);
+            return accountResponse;
         }
 
         public async Task<string> Login(LoginRequest request)

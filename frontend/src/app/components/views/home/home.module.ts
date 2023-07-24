@@ -13,13 +13,15 @@ import { MatInputModule } from '@angular/material/input'
 import { MatListModule } from '@angular/material/list';
 import { EditarPerfilComponent } from '../editar-perfil/editar-perfil.component';
 import { ExcluirPerfilComponent } from '../excluir-perfil/excluir-perfil.component';
+import { RenderizarCnpjComponent } from '../renderizar-cnpj/renderizar-cnpj.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     NavbarComponent,
     EditarPerfilComponent,
-    ExcluirPerfilComponent
+    ExcluirPerfilComponent,
+    RenderizarCnpjComponent
   ],
   imports: [
     CommonModule,

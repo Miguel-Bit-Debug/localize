@@ -72,5 +72,15 @@ namespace Localize.API.Controllers
             await _accountService.UpdateAccount(userEmail, request);
             return NoContent();
         }
+
+        [Authorize]
+        [HttpGet("account-info")]
+        public async Task<IActionResult> GetAccountInfo()
+        {
+            var userEmail = HttpContext.User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Email)?.Value;
+            var account = await _accountService.GetAccountInfo(userEmail);
+
+            return Ok(account);
+        }
     }
 }
