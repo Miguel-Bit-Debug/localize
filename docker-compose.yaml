@@ -8,9 +8,25 @@ services:
     ports:
       - "1433:1433"
     restart: always
+    networks:
+      - localize
     environment:
       - ACCEPT_EULA=Y
       - SA_PASSWORD=sqlserver@2023
       - MSSQL_SCRIPT=init.sql
     volumes:
       - ./data:/var/opt/mssql/data
+
+  backend:
+    container_name: api_backend
+    image: mdmago/localize:dev
+    env_file:
+      - ./.env
+    restart: always
+    networks:
+      - localize
+    ports:
+      - 5030:80
+
+networks:
+  localize: {}

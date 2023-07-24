@@ -1,0 +1,7 @@
+BUILD
+entrar na pasta backend e executar o seguinte comando
+docker build -t mdmago/localize:dev -f .\Localize.API\Dockerfile .
+
+docker-compose up -d
+
+
