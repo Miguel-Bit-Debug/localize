@@ -16,7 +16,7 @@ namespace Localize.InfraData.Repositories
 
         public async Task<bool> CheckAccountExists(string email)
         {
-            var account = await _context.Account
+            var account = await _context.Contas
                     .Where(x => x.Email == email)
                     .FirstOrDefaultAsync();
 

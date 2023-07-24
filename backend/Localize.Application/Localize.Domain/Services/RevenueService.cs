@@ -1,13 +1,27 @@
-﻿using Localize.Domain.DTOs.Response;
+﻿using Localize.Domain.Interfaces.Repositories;
 using Localize.Domain.Interfaces.Services;
+using Localize.Domain.Models;
 
 namespace Localize.Domain.Services
 {
     public class RevenueService : IRevenueService
     {
-        public RevenueResponse GetRevenueDataById(string id)
+        private readonly IRevenueRepository _repository;
+
+        public RevenueService(IRevenueRepository repository)
         {
-            throw new NotImplementedException();
+            _repository = repository;
+        }
+
+        public async Task<Revenue> GetRevenueDataByCnpj(string cnpj)
+        {
+            var revenue = await _repository.GetRevenueDataByCnpj(cnpj);
+            return revenue;
+        }
+
+        public async Task SaveRevenueData(Revenue revenue)
+        {
+            await _repository.SaveRevenueData(revenue);
         }
     }
 }

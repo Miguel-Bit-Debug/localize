@@ -1,9 +1,10 @@
-﻿using Localize.Domain.DTOs.Response;
+﻿using Localize.Domain.Models;
 
 namespace Localize.Domain.Interfaces.Services
 {
     public interface IRevenueService
     {
-        RevenueResponse GetRevenueDataById(string id);
+        Task<Revenue> GetRevenueDataByCnpj(string id);
+        Task SaveRevenueData(Revenue revenue);
     }
 }

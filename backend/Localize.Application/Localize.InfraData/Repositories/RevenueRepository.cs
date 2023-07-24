@@ -14,9 +14,9 @@ namespace Localize.InfraData.Repositories
             _appDbContext = appDbContext;
         }
 
-        public async Task<Revenue> GetRevenueDataById(Guid id)
+        public async Task<Revenue> GetRevenueDataByCnpj(string cnpj)
         {
-            var revenue = await _appDbContext.Revenue.Where(x => x.Id == id).FirstOrDefaultAsync();
+            var revenue = await _appDbContext.Pedidos.Where(x => x.Cnpj == cnpj).FirstOrDefaultAsync();
             return revenue;
         }
 

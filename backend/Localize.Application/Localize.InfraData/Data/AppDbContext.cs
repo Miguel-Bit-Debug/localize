@@ -7,7 +7,7 @@ namespace Localize.InfraData.Data
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
-        public DbSet<Revenue> Revenue { get; set; }
-        public DbSet<Account> Account { get; set; }
+        public DbSet<Revenue> Pedidos { get; set; }
+        public DbSet<Account> Contas { get; set; }
     }
 }
