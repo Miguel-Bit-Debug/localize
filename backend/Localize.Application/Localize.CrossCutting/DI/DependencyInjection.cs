@@ -31,6 +31,10 @@ namespace Gateway.CrossCutting.DI
             builder.Services.AddScoped<IRevenueService, RevenueService>();
             builder.Services.AddScoped<IRevenueRepository, RevenueRepository>();
 
+            builder.Services.AddScoped<IAccountService, AccountService>();
+            builder.Services.AddScoped<IAccountRepository, AccountRepository>();
+            builder.Services.AddScoped<ITokenService, TokenService>();
+
             builder.Services.AddDbContext<AppDbContext>(opt =>
             {
                 opt.UseSqlServer(builder.Configuration["DbConnection"]);

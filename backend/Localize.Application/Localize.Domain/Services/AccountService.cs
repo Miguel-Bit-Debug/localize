@@ -12,6 +12,15 @@ namespace Localize.Domain.Services
         private readonly ITokenService _tokenService;
         private readonly ILogger<AccountService> _logger;
 
+        public AccountService(IAccountRepository accountRepository,
+                              ITokenService tokenService,
+                              ILogger<AccountService> logger)
+        {
+            _accountRepository = accountRepository;
+            _tokenService = tokenService;
+            _logger = logger;
+        }
+
         public async Task<string> CreateAccount(AccountRequest request)
         {
             try
@@ -49,9 +58,24 @@ namespace Localize.Domain.Services
             }
         }
 
-        public Task<string> Login(LoginRequest request)
+        public async Task<string> Login(LoginRequest request)
         {
-            throw new NotImplementedException();
+            var account = await _accountRepository.GetAccountByEmail(request.Email);
+
+            if (account == null)
+            {
+                return null;
+            }
+
+            var passwordValid = BCrypt.Net.BCrypt.Verify(request.Password, account.Password);
+
+            if (!passwordValid)
+            {
+                return null;
+            }
+
+            var token = _tokenService.GenerateToken(account.Name, account.Email);
+            return token;
         }
     }
 }

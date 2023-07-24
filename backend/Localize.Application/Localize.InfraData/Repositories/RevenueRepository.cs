@@ -16,7 +16,10 @@ namespace Localize.InfraData.Repositories
 
         public async Task<Revenue> GetRevenueDataByCnpj(string cnpj)
         {
-            var revenue = await _appDbContext.Pedidos.Where(x => x.Cnpj == cnpj).FirstOrDefaultAsync();
+            var revenue = await _appDbContext.Pedidos
+                .Where(x => x.Cnpj == cnpj)
+                .FirstOrDefaultAsync();
+
             return revenue;
         }
 

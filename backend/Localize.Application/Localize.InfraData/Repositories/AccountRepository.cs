@@ -28,14 +28,19 @@ namespace Localize.InfraData.Repositories
             return true;
         }
 
-        public Task CreateAccount(Account account)
+        public async Task CreateAccount(Account account)
         {
-            throw new NotImplementedException();
+            await _context.AddAsync(account);
+            await _context.SaveChangesAsync();
         }
 
-        public Task<Account> GetAccountByEmail(string email)
+        public async Task<Account> GetAccountByEmail(string email)
         {
-            throw new NotImplementedException();
+            var account = await _context.Contas
+                .Where(x => x.Email == email)
+                .FirstOrDefaultAsync();
+
+            return account;
         }
     }
 }
