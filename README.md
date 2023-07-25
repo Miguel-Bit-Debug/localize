@@ -5,7 +5,8 @@
     Requisitos: 
         - .NET 6 ou superior
         - docker (se for executar utilizando docker)
-        OBS: O docker compose cria o banco e as tabelas, não é necessário executar as queries caso esteja executando no docker
+        OBS: O docker compose cria o banco e as tabelas, não é necessário executar as 
+        queries caso esteja executando no docker
 
     caso você não for utilizar docker:
         - SQL Server 2017 ou superior
